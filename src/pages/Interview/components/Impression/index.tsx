@@ -2,16 +2,18 @@ import React from "react";
 import { Typography, Divider, Row, Col, Button, Flex } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
-import { IMPRESSIONS } from "@/constants";
+import { FEEDBACKS, IMPRESSIONS, ROLES } from "@/constants";
 import { IImpression, IImpressionRate } from "@/types";
-import { setStep } from "@/store/slices/AppSlice";
+import { setFeedbacks, setStep } from "@/store/slices/AppSlice";
 
 // Components
 import ImpressionRate from "@/components/Interview/ImpressionRate";
 
 const Impression = () => {
   const dispatch = useDispatch();
-  const { impressions } = useSelector((state: RootState) => state.app);
+  const { impressions, interviewOverview } = useSelector(
+    (state: RootState) => state.app
+  );
 
   const overalImpression = React.useMemo(() => {
     const average =
@@ -66,6 +68,20 @@ const Impression = () => {
         <Button
           type="primary"
           onClick={() => {
+            const foundIndex = ROLES.findIndex(
+              (role: string) => role === interviewOverview?.role
+            );
+            dispatch(
+              setFeedbacks(
+                FEEDBACKS[foundIndex].map((feedback: string) => {
+                  return {
+                    category: feedback,
+                    mark: 0,
+                    comment: "",
+                  };
+                })
+              )
+            );
             dispatch(setStep(2));
           }}
         >

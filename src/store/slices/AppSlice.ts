@@ -1,11 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IInterviewOverview, IImpression } from "@/types";
+import { IInterviewOverview, IImpression, IFeedback } from "@/types";
 import { IMPRESSIONS, IMPRESSIONS_DETAILS } from "@/constants";
 
 interface IinitialState {
   step: number;
   interviewOverview: IInterviewOverview | null;
   impressions: Array<IImpression>;
+  feedbacks: Array<IFeedback>;
 }
 
 const initialState: IinitialState = {
@@ -23,6 +24,7 @@ const initialState: IinitialState = {
       comment: "",
     };
   }),
+  feedbacks: [],
 };
 
 const appSlice = createSlice({
@@ -38,9 +40,13 @@ const appSlice = createSlice({
     setImressions: (state, action) => {
       state.impressions = action.payload;
     },
+    setFeedbacks: (state, action) => {
+      state.feedbacks = action.payload;
+    },
   },
 });
 
-export const { setStep, setInterviewOverview, setImressions } = appSlice.actions;
+export const { setStep, setInterviewOverview, setImressions, setFeedbacks } =
+  appSlice.actions;
 
 export default appSlice.reducer;

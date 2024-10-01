@@ -13,3 +13,8 @@ export type IImpression = {
   impressions: Array<IImpressionRate>;
   comment: string;
 };
+export type IFeedback = {
+  category: string;
+  mark: number;
+  comment: string;
+};
