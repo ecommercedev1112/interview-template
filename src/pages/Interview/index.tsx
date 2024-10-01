@@ -9,8 +9,13 @@ import Impression from "./components/Impression";
 import Feedback from "./components/Feedback";
 
 const Interview = () => {
-  const contents = [Overview, Impression, Feedback];
   const { step } = useSelector((state: RootState) => state.app);
+
+  const currentStepElement = React.useMemo(() => {
+    if (step === 0) return <Overview />;
+    else if (step === 1) return <Impression />;
+    else if (step === 2) return <Feedback />;
+  }, [step]);
 
   return (
     <React.Fragment>
@@ -28,7 +33,7 @@ const Interview = () => {
           },
         ]}
       />
-      {contents[step]()}
+      {currentStepElement}
     </React.Fragment>
   );
 };
