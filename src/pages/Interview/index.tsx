@@ -7,6 +7,7 @@ import { RootState } from "@/store";
 import Overview from "./components/Overview";
 import Impression from "./components/Impression";
 import Feedback from "./components/Feedback";
+import Report from "./components/Report";
 
 const Interview = () => {
   const { step } = useSelector((state: RootState) => state.app);
@@ -15,6 +16,7 @@ const Interview = () => {
     if (step === 0) return <Overview />;
     else if (step === 1) return <Impression />;
     else if (step === 2) return <Feedback />;
+    else return <Report />;
   }, [step]);
 
   return (

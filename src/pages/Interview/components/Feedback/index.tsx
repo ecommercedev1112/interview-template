@@ -57,7 +57,7 @@ const Feedback = () => {
     },
     {
       title: "Rate",
-      dataIndex: "rate",
+      dataIndex: "mark",
       render: (value: number, _: any, index: number) => (
         <Rate
           value={value}
