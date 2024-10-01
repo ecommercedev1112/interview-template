@@ -67,7 +67,7 @@ const Overview = () => {
 
         <Form.Item
           label="Interviewer"
-          name="interview"
+          name="interviewer"
           rules={[{ required: true, message: "Please input interviewer!" }]}
         >
           <Input />
