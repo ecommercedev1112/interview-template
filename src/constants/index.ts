@@ -5,8 +5,8 @@ export const ROLES = [
   "Development Role",
 ];
 
-export const IMPORESSIONS = ["Team Work", "Technical Ability", "Fit for Role"];
-export const IMPORESSIONS_DETAILS = [
+export const IMPRESSIONS = ["Team Work", "Technical Ability", "Fit for Role"];
+export const IMPRESSIONS_DETAILS = [
   [
     "Collobration skills",
     "Ability to work independently",
