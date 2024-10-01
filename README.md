@@ -1,1 +1,1 @@
-# React + Vite + Ant Design
+# Interview Record Template (React + TypeScript + Vite + Ant Design)
